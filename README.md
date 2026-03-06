@@ -1,5 +1,13 @@
 # Camb.ai C# SDK
 
+<div id="top" align="center">
+
+   ![Banner](https://github.com/Camb-ai/cambai-python-sdk/raw/main/assets/banner5_720.jpg)
+   <h3>
+   <a href="https://camb.ai/"> Camb AI Website </a></h3>
+
+</div>
+
 The official C# SDK for interacting with Camb AI's powerful voice and audio generation APIs. Create expressive speech, unique voices, and rich soundscapes with just a few lines of C#.
 
 ## ✨ Features
