@@ -81,10 +81,10 @@ NOTE: For more examples and full runnable files refer to the `examples/` directo
 var response = await client.TextToSpeech.TtsAsync(new CreateStreamTtsRequestPayload
 {
     Text = "[warm, friendly] Great to meet you!",
-    VoiceId = 20303,
+    VoiceId = 147320,
     Language = CreateStreamTtsRequestPayloadLanguage.EnUs,
     SpeechModel = CreateStreamTtsRequestPayloadSpeechModel.Mars8Instruct,
-    UserInstructions = "Speak warmly and with enthusiasm.",
+    UserInstructions = "Speak in a warm, friendly tone",
     OutputConfiguration = new StreamTtsOutputConfiguration
     {
         Format = OutputFormat.Wav
