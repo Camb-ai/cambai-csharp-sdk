@@ -61,6 +61,37 @@ var ttsProvider = new BasetenProvider(
 
 NOTE: For more examples and full runnable files refer to the `examples/` directory.
 
+#### TTS request options
+
+`client.TextToSpeech.TtsAsync(...)` accepts the core request fields plus optional controls for model behavior and output format:
+
+| Field | Description |
+| :--- | :--- |
+| `Text` | Text to synthesize. For MARS Instruct, you can include inline emotion or pacing tags. |
+| `Language` | Locale such as `CreateStreamTtsRequestPayloadLanguage.EnUs`. |
+| `VoiceId` | Voice profile ID from the voice list APIs. |
+| `SpeechModel` | Model to use, such as `Mars8`, `Mars8Instruct`, or `Mars8Flash`. |
+| `UserInstructions` | Adds style, tone, pronunciation, or delivery guidance for the request. Available only with MARS Instruct. |
+| `OutputConfiguration` | Output settings such as audio format, duration, and enhancement. |
+| `VoiceSettings` | Voice behavior controls such as reference enhancement or accent preservation. |
+| `InferenceOptions` | Advanced generation controls for supported models. |
+| `EnhanceNamedEntitiesPronunciation` | Improves pronunciation for names and other named entities when supported. |
+
+```csharp
+var response = await client.TextToSpeech.TtsAsync(new CreateStreamTtsRequestPayload
+{
+    Text = "[warm, friendly] Great to meet you!",
+    VoiceId = 147320,
+    Language = CreateStreamTtsRequestPayloadLanguage.EnUs,
+    SpeechModel = CreateStreamTtsRequestPayloadSpeechModel.Mars8Instruct,
+    UserInstructions = "Speak in a warm, friendly tone",
+    OutputConfiguration = new StreamTtsOutputConfiguration
+    {
+        Format = OutputFormat.Wav
+    }
+});
+```
+
 ### 1. Text-to-Speech (TTS)
 
 Convert text into spoken audio using one of Camb AI's high-quality voices.
@@ -75,7 +106,7 @@ var response = await client.TextToSpeech.TtsAsync(new CreateStreamTtsRequestPayl
     Text = "Hello from Camb AI! This is a test.",
     VoiceId = 20303,
     Language = CreateStreamTtsRequestPayloadLanguage.EnUs,
-    SpeechModel = CreateStreamTtsRequestPayloadSpeechModel.MarsPro,
+    SpeechModel = CreateStreamTtsRequestPayloadSpeechModel.Mars8,
     OutputConfiguration = new StreamTtsOutputConfiguration
     {
         Format = OutputFormat.Mp3
